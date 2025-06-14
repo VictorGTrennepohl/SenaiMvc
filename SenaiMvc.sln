@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenaiMvc", "SenaiMvc\SenaiMvc.csproj", "{531DA7D9-5E75-445E-9CB9-E17B265AADED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenaiMvc.Service", "SenaiMvc.Service\SenaiMvc.Service.csproj", "{B5F738A3-4D85-462D-8FF3-25B32C467AFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{531DA7D9-5E75-445E-9CB9-E17B265AADED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531DA7D9-5E75-445E-9CB9-E17B265AADED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531DA7D9-5E75-445E-9CB9-E17B265AADED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531DA7D9-5E75-445E-9CB9-E17B265AADED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F738A3-4D85-462D-8FF3-25B32C467AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F738A3-4D85-462D-8FF3-25B32C467AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F738A3-4D85-462D-8FF3-25B32C467AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F738A3-4D85-462D-8FF3-25B32C467AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

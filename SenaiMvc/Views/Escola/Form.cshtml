@@ -1,0 +1,40 @@
+﻿@using SenaiMvc.Models.Escola
+
+
+@model EscolaModel
+
+<form method="Post" asp-action="Form" asp-controller="Escola">
+<div class="mb-3">
+	<input type="hidden" asp-for="Id" />
+
+	<label  class="form-label">Nome</label>
+	<input type="string" class="form-control" asp-for="Nome" >
+	@Html.ValidationMessageFor(m => m.Nome, "" , new { @class = "text-danger"})
+</div>
+<div class="row">
+	<div class="col-md-5">
+		<label class="form-label">Rua</label>
+		<input type="text" class="form-control" asp-for="Endereco.Rua">
+	</div>
+	<div class="col-md-2">
+			<label class="form-label">Numero</label>
+		<input type="number" class="form-control" asp-for="Endereco.Numero">
+	</div>
+	<div class="col-md-5">
+			<label class="form-label">Bairro</label>
+		<input type="text" class="form-control" asp-for="Endereco.Bairro">
+	</div>
+	<div class="col-md-6">
+			<label class="form-label">Estado</label>
+		<input type="text" class="form-control" asp-for="Endereco.Estado">
+	</div>
+	<div class="col-md-6">
+			<label class="form-label">Cidade</label>
+		<input type="text" class="form-control" asp-for="Endereco.Cidade">
+	</div>
+</div>
+<br />
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+	<button class="btn btn-outline-success" type="submit">Salvar</button>
+</div>
+</form>
