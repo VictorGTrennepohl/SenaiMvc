@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AK8M+muWoSjjLhreT/Dh24y8SLojV/rUK7O6AUubmzc=",
+  "Hash": "tFSpq4bSZtveZoYlLlvOKvAs2VjlvWI9MHAQ860P8RY=",
   "Source": "SenaiMvc",
   "BasePath": "_content/SenaiMvc",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\victor_trennepohl\\Desktop\\Aulas do trainee\\API 2025\\SenaiMvc\\SenaiMvc\\wwwroot\\js\\escola.js",
+      "SourceId": "SenaiMvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\victor_trennepohl\\Desktop\\Aulas do trainee\\API 2025\\SenaiMvc\\SenaiMvc\\wwwroot\\",
+      "BasePath": "_content/SenaiMvc",
+      "RelativePath": "js/escola#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oklx31sgpk",
+      "Integrity": "eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\escola.js"
     },
     {
       "Identity": "C:\\Users\\victor_trennepohl\\Desktop\\Aulas do trainee\\API 2025\\SenaiMvc\\SenaiMvc\\wwwroot\\js\\site.js",
@@ -1481,6 +1502,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "js/escola.js",
+      "AssetFile": "C:\\Users\\victor_trennepohl\\Desktop\\Aulas do trainee\\API 2025\\SenaiMvc\\SenaiMvc\\wwwroot\\js\\escola.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "980"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 21 Jun 2025 14:35:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/escola.oklx31sgpk.js",
+      "AssetFile": "C:\\Users\\victor_trennepohl\\Desktop\\Aulas do trainee\\API 2025\\SenaiMvc\\SenaiMvc\\wwwroot\\js\\escola.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "980"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 21 Jun 2025 14:35:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oklx31sgpk"
+        },
+        {
+          "Name": "label",
+          "Value": "js/escola.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ="
         }
       ]
     },

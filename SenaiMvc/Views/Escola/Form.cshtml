@@ -6,6 +6,7 @@
 <form method="Post" asp-action="Form" asp-controller="Escola">
 <div class="mb-3">
 	<input type="hidden" asp-for="Id" />
+	<input type="hidden" asp-for="Endereco.Id" />
 
 	<label  class="form-label">Nome</label>
 	<input type="string" class="form-control" asp-for="Nome" >
@@ -15,22 +16,32 @@
 	<div class="col-md-5">
 		<label class="form-label">Rua</label>
 		<input type="text" class="form-control" asp-for="Endereco.Rua">
+		@Html.ValidationMessageFor(m => m.Endereco.Rua, "", new { @class = "text-danger"})
 	</div>
 	<div class="col-md-2">
 			<label class="form-label">Numero</label>
 		<input type="number" class="form-control" asp-for="Endereco.Numero">
+			@Html.ValidationMessageFor(m => m.Endereco.Numero, "", new { @class = "text-danger" })
 	</div>
 	<div class="col-md-5">
 			<label class="form-label">Bairro</label>
 		<input type="text" class="form-control" asp-for="Endereco.Bairro">
+			@Html.ValidationMessageFor(m => m.Endereco.Bairro, "", new { @class = "text-danger" })
 	</div>
 	<div class="col-md-6">
 			<label class="form-label">Estado</label>
-		<input type="text" class="form-control" asp-for="Endereco.Estado">
+			<select asp-for="Endereco.Estado" asp-itens="Model.Estados" onchange="escola.carregarCidadesPorUF(this.value)" class="form-control">
+				<option value="">-- Selecione um Estado --</option>
+			</select>
+			@Html.ValidationMessageFor(m => m.Endereco.Estado, "", new { @class = "text-danger" })
 	</div>
 	<div class="col-md-6">
 			<label class="form-label">Cidade</label>
+			<select asp-for="Endereco.Cidade" asp-itens="Model.Cidades" class="form-control">
+				<option value="">-- Selecione uma Cidade --</option>
+			</select>
 		<input type="text" class="form-control" asp-for="Endereco.Cidade">
+			@Html.ValidationMessageFor(m => m.Endereco.Cidade, "", new { @class = "text-danger" })
 	</div>
 </div>
 <br />
@@ -38,3 +49,7 @@
 	<button class="btn btn-outline-success" type="submit">Salvar</button>
 </div>
 </form>
+
+@section Scripts {
+		<script src="~/js/escola.js"><</script>
+}

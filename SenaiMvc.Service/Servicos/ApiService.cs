@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SenaiMvc.Service.Servicos
 {
@@ -42,6 +43,16 @@ namespace SenaiMvc.Service.Servicos
                 return true;
             }
             return false;
+        }
+
+        public async Task<List<T>> PegarEstados<T>()
+        {
+            using var httpClient = new HttpClient();
+            var response = await _httpClient.GetAsync("https://servicodados.ibge.gov.br/api/v1/localidades/estados\r\n");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var estados = JsonConvert.DeserializeObject<List<T>>(json);
+            return estados ?? new List<T>();
         }
     }
 }
