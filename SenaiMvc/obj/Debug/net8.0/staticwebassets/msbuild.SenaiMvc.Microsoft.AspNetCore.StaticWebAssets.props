@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oklx31sgpk</Fingerprint>
-      <Integrity>eDISJnkDOFBjJokBT/ADSI2sAXB6XGN5tAwY8wt8pbQ=</Integrity>
+      <Fingerprint>m0lx545krv</Fingerprint>
+      <Integrity>pu0xrZDNY/AsGMUB1YaGmbBdqqDNaDqajAMribszwA0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\escola.js'))</OriginalItemSpec>

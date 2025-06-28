@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
+using SenaiMvc.Models.Endereco;
 using SenaiMvc.Models.Escola;
 using SenaiMvc.Service.Interfaces;
 
@@ -15,7 +16,25 @@ namespace SenaiMvc.Controllers
         public EscolaController(IApiService apiService)
         {
             _apiService = apiService;
-        }   
+        }
+
+        public async Task AlimentarCidade(EscolaModel model, string uf)
+        {
+            using var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync($"https://servicodados.ibge.gov.br/api/v1/localidades/estados/{uf}/distritos");
+
+            var json = await response.Content.ReadAsStringAsync();
+            var cidades = JsonConvert.DeserializeObject<List<CidadeIBGE>>(json);
+
+            model.Cidades = cidades
+                .OrderBy(c => c.Nome)
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Nome,
+                    Selected = c.Id.ToString() == model.Endereco.Cidade.ToString()
+                }).ToList();
+        }
 
 
         public async Task<IActionResult> Index()
@@ -25,7 +44,7 @@ namespace SenaiMvc.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Form() 
+        public async Task<IActionResult> Form()
         {
             var model = new EscolaModel();
             await AlimentarEstados(model);
@@ -35,15 +54,16 @@ namespace SenaiMvc.Controllers
         [HttpPost]
         public async Task<IActionResult> Form(EscolaModel model)//salvar
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 if (model.Endereco.Id == null)
-                { 
+                {
                     model.Endereco.Id = 0;
                 }
                 var retorno = await _apiService.PostAsync<EscolaModel>("Escola/api/v1", model);
                 return Redirect("Index");
             }
+            await AlimentarEstados(model);
             return View();
         }
 
@@ -51,6 +71,15 @@ namespace SenaiMvc.Controllers
         public async Task<IActionResult> Editar(long id)
         {
             var model = await _apiService.GetAsync<EscolaModel>($"Escola/api/v1/PegarPorId?id={id}");
+            if (model.Endereco.Id == null)
+            {
+                model.Endereco = new EnderecoModel();
+            }
+            await AlimentarEstados(model);
+            if (!string.IsNullOrEmpty(model.Endereco.Estado))
+            {
+                await AlimentarCidade(model, model.Endereco.Estado);
+            }
             return View("Form", model);
         }
 
@@ -73,30 +102,26 @@ namespace SenaiMvc.Controllers
                 .ToList();
         }
 
-        private async Task AlimentarCidades(EscolaModel model, string uf)
+        [HttpGet]
+        public async Task<IActionResult> ObterCidadesPorUF(string uf)
         {
             using var httpClient = new HttpClient();
             var response = await httpClient.GetAsync($"https://servicodados.ibge.gov.br/api/v1/localidades/estados/{uf}/distritos");
 
             if (!response.IsSuccessStatusCode)
             {
-                model.Cidades = new List<SelectListItem>();
-                return;
+                return BadRequest("Erro ao buscar cidades");
             }
 
-            var json = await response.Content.ReadAsStringAsync(); 
+            var json = await response.Content.ReadAsStringAsync();
             var cidades = JsonConvert.DeserializeObject<List<CidadeIBGE>>(json);
 
-            model.Cidades = cidades.OrderBy(c => c.Nome)
-                .Select(c => new SelectListItem
+            var resultado = cidades
+                .OrderBy(c => c.Nome)
+                .Select(c => new { id = c.Id, nome = c.Nome })
+                .ToList();
 
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Nome,
-                    Selected = c.Id.ToString() == model.Endereco.Cidade.ToString()
-                }).ToList();
-                
-            
+            return Json(resultado);
         }
     }
 }

@@ -27,20 +27,19 @@
 			<label class="form-label">Bairro</label>
 		<input type="text" class="form-control" asp-for="Endereco.Bairro">
 			@Html.ValidationMessageFor(m => m.Endereco.Bairro, "", new { @class = "text-danger" })
-	</div>
+	</div>	
 	<div class="col-md-6">
 			<label class="form-label">Estado</label>
-			<select asp-for="Endereco.Estado" asp-itens="Model.Estados" onchange="escola.carregarCidadesPorUF(this.value)" class="form-control">
+			<select asp-for="Endereco.Estado" asp-items="Model.Estados" onchange="escola.carregarCidadesPorUF(this.value)" class="form-control">
 				<option value="">-- Selecione um Estado --</option>
 			</select>
 			@Html.ValidationMessageFor(m => m.Endereco.Estado, "", new { @class = "text-danger" })
 	</div>
 	<div class="col-md-6">
 			<label class="form-label">Cidade</label>
-			<select asp-for="Endereco.Cidade" asp-itens="Model.Cidades" class="form-control">
+			<select asp-for="Endereco.Cidade" asp-items="Model.Cidades" class="form-control">
 				<option value="">-- Selecione uma Cidade --</option>
 			</select>
-		<input type="text" class="form-control" asp-for="Endereco.Cidade">
 			@Html.ValidationMessageFor(m => m.Endereco.Cidade, "", new { @class = "text-danger" })
 	</div>
 </div>
@@ -51,5 +50,5 @@
 </form>
 
 @section Scripts {
-		<script src="~/js/escola.js"><</script>
+		<script src="~/js/escola.js"></script>
 }

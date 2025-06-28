@@ -6,16 +6,16 @@
             var select = document.getElementById("Endereco_Cidade");
             select.innerHTML = '<option value="">Carregando...</option>';
 
-            fetch('/Escola/ObterCidadesPorUF?uf=${uf}')
+            fetch(`/Escola/ObterCidadesPorUF?uf=${uf}`)
                 .then(response => response.json())
                 .then(data => {
-                    select.innerHTML = '<option value="">-- Selecionea cidade --</option>';
+                    select.innerHTML = '<option value="">-- Selecione a cidade --</option>';
 
-                    data.forEach(function (cidade) {
-                        var option = document.CreateElement("option");
+                    data.forEach(function (cidade) { //data = cidades
+                        var option = document.createElement("option");
                         option.value = cidade.id;
                         option.text = cidade.nome;
-                        select.appenChild(option);
+                        select.appendChild(option);
                     });
                 })
                 .catch(err => {

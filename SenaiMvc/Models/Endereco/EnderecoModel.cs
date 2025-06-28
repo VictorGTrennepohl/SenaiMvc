@@ -13,7 +13,7 @@ namespace SenaiMvc.Models.Endereco
         public string Bairro { get; set; }
 
         [Required(ErrorMessage = "Campo Cidade é Obrigatorio")]
-        public string Cidade { get; set; }
+        public int? Cidade { get; set; }
 
 
         [Required(ErrorMessage = "Campo Estado é Obrigatorio"), MaxLength(2)]
